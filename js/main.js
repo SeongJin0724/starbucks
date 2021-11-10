@@ -1,19 +1,3 @@
-const searchEl = document.querySelector('.search');
-const searchInputEl = searchEl.querySelector('input');
-
-searchEl.addEventListener('click', function () {
-  searchInputEl.focus();
-});
-
-searchInputEl.addEventListener('focus', function () {
-  searchEl.classList.add('focused');
-  searchInputEl.setAttribute('placeholder', '통합검색');
-});
-searchInputEl.addEventListener('blur', function () {
-  searchEl.classList.remove('focused');
-  searchInputEl.setAttribute('placeholder', '');
-});
-
 const badgeEl = document.querySelector('header .badges');
 const toTopEl = document.querySelector('#to-top');
 
@@ -44,7 +28,7 @@ window.addEventListener('scroll', _.throttle(function () {
 }, 300));
 // _.throttle(함수, 시간)
 
-toTopEl.addEventListener('click', function(){
+toTopEl.addEventListener('click', function () {
   gsap.to(window, .7, {
     scrollTo: 0
   });
@@ -82,12 +66,12 @@ new Swiper('.promotion .swiper-container', {
     nextEl: '.promotion .swiper-next'
   }
 });
-new Swiper('.awards .swiper-container',{
+new Swiper('.awards .swiper-container', {
   autoplay: true,
   loop: true,
   spaceBetween: 30,
   slidesPerView: 5,
-  navigation:{
+  navigation: {
     prevEl: '.awards .swiper-prev',
     nextEl: '.awards .swiper-next'
   }
@@ -136,15 +120,12 @@ floatingObject('.floating2', .5, 15);
 floatingObject('.floating3', 1.5, 20);
 
 const spyEls = document.querySelectorAll('section.scroll-spy');
-spyEls.forEach(function(spyEl){
+spyEls.forEach(function (spyEl) {
   new ScrollMagic
     .Scene({
       triggerElement: spyEl, //보여짐의 여부를 감시할 요소를 지정
       triggerHook: .8
     })
-    .setClassToggle(spyEl,'show')
+    .setClassToggle(spyEl, 'show')
     .addTo(new ScrollMagic.Controller());
 });
-
-const thisYear =document.querySelector('.this-year');
-thisYear.textContent = new Date().getFullYear(); // 2021 출력
